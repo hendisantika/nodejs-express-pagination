@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const app = express();
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/articles', {
-    useMongoClient: true
+    useNewUrlParser: true
 }).then(() => console.log('conneted to db'))
     .catch(err => console.log(err));
 
