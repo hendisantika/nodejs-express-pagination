@@ -33,7 +33,7 @@ router.get('/products/:page', (req, res, next) => {
         .skip((perPage * page) - perPage) // in the first page the value of the skip is 0
         .limit(perPage) // output just 9 items
         .exec((err, products) => {
-            Product.count((err, count) => { // count to calculate the number of pages
+            Product.countDocuments((err, count) => { // count to calculate the number of pages
                 if (err) return next(err);
                 res.render('products/products', {
                     products,
